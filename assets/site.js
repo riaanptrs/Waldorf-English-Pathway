@@ -2,10 +2,11 @@ const draft = document.querySelector('#draft');
 const wordCount = document.querySelector('#word-count');
 const saveButton = document.querySelector('#save-draft');
 const saveMessage = document.querySelector('#save-message');
+const draftKey = draft?.dataset.draftKey || 'g7-u1-l01-draft';
 
 function updateCount() { if (!draft || !wordCount) return; const count = draft.value.trim() ? draft.value.trim().split(/\s+/).length : 0; wordCount.textContent = `${count} ${count === 1 ? 'word' : 'words'}`; }
-if (draft) { draft.value = localStorage.getItem('g7-u1-l01-draft') || ''; updateCount(); draft.addEventListener('input', updateCount); }
-if (saveButton) saveButton.addEventListener('click', () => { localStorage.setItem('g7-u1-l01-draft', draft.value); saveMessage.textContent = 'Saved on this device. You can return to it later.'; });
+if (draft) { draft.value = localStorage.getItem(draftKey) || ''; updateCount(); draft.addEventListener('input', updateCount); }
+if (saveButton) saveButton.addEventListener('click', () => { localStorage.setItem(draftKey, draft.value); saveMessage.textContent = 'Saved on this device. You can return to it later.'; });
 
 const portugueseHelpButton = document.querySelector('#toggle-pt-help');
 const portugueseHelpPanel = document.querySelector('#pt-help-panel');
@@ -19,7 +20,7 @@ if (portugueseHelpButton && portugueseHelpPanel) {
   });
 }
 document.querySelectorAll('.vocab-cards button').forEach((word) => word.addEventListener('click', () => { document.querySelector('#vocab-help').innerHTML = `<b>${word.textContent}</b> = ${word.dataset.pt}. <span>Example: ${word.dataset.example}</span>`; }));
-document.querySelectorAll('.check-answer').forEach((button) => button.addEventListener('click', () => { const answer = document.querySelector('input[name="stone"]:checked'); const feedback = button.parentElement.querySelector('.feedback'); feedback.textContent = answer?.value === button.dataset.answer ? 'Yes. It gives texture, colour, number, shape, and a word picture.' : 'Try again. Choose the sentence with details that help you picture the stone.'; }));
+document.querySelectorAll('.check-answer').forEach((button) => button.addEventListener('click', () => { const answer = button.parentElement.querySelector(`input[name="${button.dataset.name || 'stone'}"]:checked`); const feedback = button.parentElement.querySelector('.feedback'); feedback.textContent = answer?.value === button.dataset.answer ? (button.dataset.correct || 'Yes. It gives texture, colour, number, shape, and a word picture.') : (button.dataset.try || 'Try again. Choose the sentence with details that help you picture the stone.'); }));
 document.querySelectorAll('.check-multiple').forEach((button) => button.addEventListener('click', () => { const selected = [...button.parentElement.querySelectorAll('input:checked')].map(input => input.value).sort().join(','); const correct = button.dataset.answer.split(',').sort().join(','); const feedback = button.parentElement.querySelector('.feedback'); feedback.textContent = selected === correct ? 'Correct. A stone can be smooth or rough, round or pointed. It cannot be hungry.' : 'Almost. Think about which words describe shape or texture. “Hungry” describes a living thing.'; }));
 
 document.querySelectorAll('.sentence-builder').forEach((builder) => {
