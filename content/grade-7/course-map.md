@@ -4,7 +4,7 @@ course_title: "Grade 7: Wish, Wonder & Word Pictures"
 learner_age: "12–13"
 language_level: "A2–B1, with B1+ stretch tasks"
 lesson_count: 30
-status: "pilot"
+status: "complete"
 ---
 
 # Grade 7 Course Map
