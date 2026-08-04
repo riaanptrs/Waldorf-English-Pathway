@@ -7,7 +7,18 @@ function updateCount() { if (!draft || !wordCount) return; const count = draft.v
 if (draft) { draft.value = localStorage.getItem('g7-u1-l01-draft') || ''; updateCount(); draft.addEventListener('input', updateCount); }
 if (saveButton) saveButton.addEventListener('click', () => { localStorage.setItem('g7-u1-l01-draft', draft.value); saveMessage.textContent = 'Saved on this device. You can return to it later.'; });
 
-document.querySelectorAll('.vocab-cards button').forEach((word) => word.addEventListener('click', () => { document.querySelector('#vocab-help').innerHTML = `<b>${word.textContent}</b> = ${word.dataset.pt}. <span>${word.dataset.example}</span>`; }));
+const portugueseHelpButton = document.querySelector('#toggle-pt-help');
+const portugueseHelpPanel = document.querySelector('#pt-help-panel');
+if (portugueseHelpButton && portugueseHelpPanel) {
+  portugueseHelpButton.addEventListener('click', () => {
+    const isOpen = portugueseHelpButton.getAttribute('aria-expanded') === 'true';
+    portugueseHelpButton.setAttribute('aria-expanded', String(!isOpen));
+    portugueseHelpPanel.hidden = isOpen;
+    document.querySelectorAll('.pt-glossary').forEach((glossary) => { glossary.hidden = isOpen; });
+    portugueseHelpButton.textContent = isOpen ? '? Need help in Portuguese?' : '× Hide Portuguese help';
+  });
+}
+document.querySelectorAll('.vocab-cards button').forEach((word) => word.addEventListener('click', () => { document.querySelector('#vocab-help').innerHTML = `<b>${word.textContent}</b> = ${word.dataset.pt}. <span>Example: ${word.dataset.example}</span>`; }));
 document.querySelectorAll('.check-answer').forEach((button) => button.addEventListener('click', () => { const answer = document.querySelector('input[name="stone"]:checked'); const feedback = button.parentElement.querySelector('.feedback'); feedback.textContent = answer?.value === button.dataset.answer ? 'Yes. It gives texture, colour, number, shape, and a word picture.' : 'Try again. Choose the sentence with details that help you picture the stone.'; }));
 document.querySelectorAll('.check-multiple').forEach((button) => button.addEventListener('click', () => { const selected = [...button.parentElement.querySelectorAll('input:checked')].map(input => input.value).sort().join(','); const correct = button.dataset.answer.split(',').sort().join(','); const feedback = button.parentElement.querySelector('.feedback'); feedback.textContent = selected === correct ? 'Correct. A stone can be smooth or rough, round or pointed. It cannot be hungry.' : 'Almost. Think about which words describe shape or texture. “Hungry” describes a living thing.'; }));
 
