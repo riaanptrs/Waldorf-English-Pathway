@@ -55,8 +55,10 @@ The final portfolio brings together descriptive, poetic, narrative, and analytic
 │   │   └── units/
 │   ├── grade-6/            # added only when its course is ready
 │   └── grade-8/
-├── src/                    # future website application
-├── public/                 # future static assets
+├── index.html              # public website home page
+├── grade-7.html            # active Grade 7 course page
+├── lesson-look-closely.html # first interactive Grade 7 lesson
+├── assets/                 # shared CSS and browser-based lesson interactions
 └── README.md
 ```
 
