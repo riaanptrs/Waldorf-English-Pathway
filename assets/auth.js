@@ -31,7 +31,7 @@ function showView(view) {
   document.querySelectorAll('[data-auth-panel]').forEach((panel) => {
     panel.hidden = panel.dataset.authPanel !== view;
   });
-  document.querySelectorAll('[data-auth-view]').forEach((button) => {
+  document.querySelectorAll('.auth-tab[data-auth-view]').forEach((button) => {
     const active = button.dataset.authView === view;
     button.classList.toggle('active', active);
     button.setAttribute('aria-selected', String(active));
@@ -115,7 +115,7 @@ signupForm?.addEventListener('submit', async (event) => {
       email: String(data.get('email')).trim(),
       password,
       options: {
-        emailRedirectTo: `${siteUrl('auth.html')}?confirmed=1`,
+        emailRedirectTo: siteUrl('auth.html'),
         data: {
           learner_nickname: nickname,
           learner_school_year: String(data.get('school_year')),
@@ -175,20 +175,12 @@ async function initialise() {
   showView(params.get('view') === 'signup' ? 'signup' : 'login');
 
   const { data: { session } } = await supabase.auth.getSession();
-  if (!session?.user) {
-    if (params.get('confirmed') === '1') {
-      setStatus(globalStatus, 'Confirmando sua conta…');
-    }
-    return;
-  }
+  if (!session?.user) return;
 
   renderSignedIn(session.user);
   try {
     await ensureGuardianSetup(session.user);
-    if (params.get('confirmed') === '1') {
-      setStatus(globalStatus, 'E-mail confirmado. Seu portfólio está pronto.', 'success');
-      window.setTimeout(() => window.location.assign(siteUrl('portfolio.html')), 900);
-    }
+    setStatus(globalStatus, 'Conta confirmada e portfólio pronto.', 'success');
   } catch (error) {
     setStatus(globalStatus, translateAuthError(error), 'error');
   }
@@ -200,9 +192,7 @@ supabase.auth.onAuthStateChange((event, session) => {
       renderSignedIn(session.user);
       try {
         await ensureGuardianSetup(session.user);
-        if (new URLSearchParams(window.location.search).get('confirmed') === '1') {
-          window.location.assign(siteUrl('portfolio.html'));
-        }
+        setStatus(globalStatus, 'Conta confirmada e portfólio pronto.', 'success');
       } catch (error) {
         setStatus(globalStatus, translateAuthError(error), 'error');
       }
