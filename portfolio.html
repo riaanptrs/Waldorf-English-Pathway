@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfólio privado das atividades de inglês do estudante." />
+    <title>Meu portfólio | Waldorf English Pathway</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/auth.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-mark">W</span> Waldorf English <em>Pathway</em></a>
+      <nav><a href="grade-7.html">Práticas do 7º ano</a><a href="privacy.html">Privacidade</a></nav>
+      <button id="sign-out" class="link-button" type="button">Sair</button>
+    </header>
+
+    <main class="portfolio-page">
+      <section class="portfolio-hero">
+        <div><p class="eyebrow">Conta do responsável</p><h1>Portfólio de <em>inglês</em></h1><p class="lead">Conta conectada: <strong id="guardian-email"></strong></p></div>
+        <div class="portfolio-actions"><a class="button" href="grade-7.html">Continuar praticando</a><a class="text-link" href="mailto:waldorfep@gmail.com">Pedir ajuda</a></div>
+      </section>
+      <p id="portfolio-status" class="form-status" aria-live="polite"></p>
+
+      <div class="portfolio-grid">
+        <aside class="portfolio-stack">
+          <section class="portfolio-card">
+            <p class="eyebrow">Estudantes desta conta</p>
+            <h2>Escolha o portfólio</h2>
+            <div id="learner-list" class="learner-list"></div>
+          </section>
+
+          <section class="portfolio-card">
+            <p class="eyebrow">Adicionar estudante</p>
+            <h2>Novo perfil</h2>
+            <form id="add-learner-form" class="form-grid" novalidate>
+              <label class="field">Nome ou apelido<input name="nickname" type="text" maxlength="80" required /></label>
+              <label class="field">Ano escolar atual<select name="school_year"><option value="6">6º ano</option><option value="7" selected>7º ano</option><option value="8">8º ano</option><option value="9">9º ano</option><option value="ensino_medio">Ensino Médio</option><option value="outro">Outro</option></select></label>
+              <button class="button button-small" type="submit">Adicionar estudante</button>
+              <p class="form-status" aria-live="polite"></p>
+            </form>
+          </section>
+        </aside>
+
+        <section class="portfolio-stack">
+          <article class="portfolio-card">
+            <p class="eyebrow">Portfólio selecionado</p>
+            <h2 id="active-learner-name">Carregando…</h2>
+            <div class="stat-grid">
+              <div class="stat-card"><strong id="cloud-progress-count">0</strong><span>práticas concluídas</span></div>
+              <div class="stat-card"><strong id="portfolio-entry-count">0</strong><span>trabalhos salvos</span></div>
+              <div class="stat-card"><strong id="needs-practice-count">0</strong><span>itens para revisar</span></div>
+            </div>
+          </article>
+
+          <article class="portfolio-card">
+            <p class="eyebrow">Trabalhos recentes</p>
+            <h2>Respostas e produções</h2>
+            <div id="entry-list" class="entry-list"></div>
+          </article>
+
+          <article class="portfolio-card">
+            <p class="eyebrow">Próxima etapa</p>
+            <h2>Conectar respostas das lições</h2>
+            <p class="support-line">A conta, o estudante e o painel já estão prontos. Na próxima etapa, os campos de escrita e o progresso das 32 práticas serão salvos automaticamente neste portfólio.</p>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <footer><a class="brand" href="index.html"><span class="brand-mark">W</span> Waldorf English <em>Pathway</em></a><p><a class="text-link" href="privacy.html">Aviso de Privacidade</a> · <a class="text-link" href="mailto:waldorfep@gmail.com">waldorfep@gmail.com</a></p></footer>
+    <script type="module" src="assets/portfolio.js"></script>
+  </body>
+</html>
