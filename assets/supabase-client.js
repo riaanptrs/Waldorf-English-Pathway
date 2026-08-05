@@ -48,6 +48,17 @@ export async function getAuthenticatedUser() {
   return data.user;
 }
 
+async function readGuardianLearners(userId) {
+  const { data, error } = await supabase
+    .from('learners')
+    .select('id, nickname, school_year, is_active, created_at')
+    .eq('guardian_user_id', userId)
+    .order('created_at', { ascending: true });
+
+  if (error) throw error;
+  return data || [];
+}
+
 export async function ensureGuardianSetup(user) {
   if (!user) throw new Error('Usuário não autenticado.');
 
@@ -69,18 +80,15 @@ export async function ensureGuardianSetup(user) {
       terms_version: metadata.terms_version || TERMS_VERSION,
       consented_at: metadata.consented_at || new Date().toISOString(),
     });
-    if (profileInsertError) throw profileInsertError;
+
+    // Two auth callbacks can initialise at nearly the same time. A duplicate-key
+    // result means the other callback created the same profile successfully.
+    if (profileInsertError && profileInsertError.code !== '23505') throw profileInsertError;
   }
 
-  const { data: learners, error: learnerReadError } = await supabase
-    .from('learners')
-    .select('id, nickname, school_year, is_active, created_at')
-    .eq('guardian_user_id', user.id)
-    .order('created_at', { ascending: true });
+  const learners = await readGuardianLearners(user.id);
 
-  if (learnerReadError) throw learnerReadError;
-
-  if ((!learners || learners.length === 0) && metadata.learner_nickname) {
+  if (learners.length === 0 && metadata.learner_nickname) {
     const { data: learner, error: learnerInsertError } = await supabase
       .from('learners')
       .insert({
@@ -91,9 +99,14 @@ export async function ensureGuardianSetup(user) {
       .select('id, nickname, school_year, is_active, created_at')
       .single();
 
-    if (learnerInsertError) throw learnerInsertError;
-    return [learner];
+    if (!learnerInsertError) return [learner];
+
+    // The database has a uniqueness guard for guardian + nickname + school year.
+    // If another callback won the race, return the learner it created.
+    if (learnerInsertError.code === '23505') return readGuardianLearners(user.id);
+
+    throw learnerInsertError;
   }
 
-  return learners || [];
+  return learners;
 }
