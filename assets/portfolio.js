@@ -21,6 +21,7 @@ let learners = [];
 let activeLearnerId = null;
 
 function setStatus(message, type = '') {
+  if (!pageStatus) return;
   pageStatus.textContent = message;
   pageStatus.className = `form-status ${type}`.trim();
 }
@@ -39,20 +40,33 @@ function formatDate(value) {
   return new Intl.DateTimeFormat('pt-BR', { dateStyle: 'medium' }).format(new Date(value));
 }
 
+function makeEmptyState(message) {
+  const empty = document.createElement('div');
+  empty.className = 'empty-state';
+  empty.textContent = message;
+  return empty;
+}
+
 function renderLearners() {
-  learnerList.innerHTML = '';
+  learnerList.replaceChildren();
+
   learners.forEach((learner) => {
     const button = document.createElement('button');
+    const name = document.createElement('strong');
+    const year = document.createElement('span');
+
     button.type = 'button';
     button.className = 'learner-button';
     button.classList.toggle('active', learner.id === activeLearnerId);
-    button.innerHTML = `<strong>${learner.nickname}</strong><span>${schoolYearLabel(learner.school_year)}</span>`;
+    name.textContent = learner.nickname;
+    year.textContent = schoolYearLabel(learner.school_year);
+    button.append(name, year);
     button.addEventListener('click', () => selectLearner(learner.id));
     learnerList.append(button);
   });
 
   if (!learners.length) {
-    learnerList.innerHTML = '<div class="empty-state">Cadastre o primeiro estudante usando o formulário abaixo.</div>';
+    learnerList.append(makeEmptyState('Cadastre o primeiro estudante usando o formulário abaixo.'));
   }
 }
 
@@ -63,14 +77,14 @@ async function loadLearnerData() {
     progressCount.textContent = '0';
     portfolioCount.textContent = '0';
     reviewCount.textContent = '0';
-    entryList.innerHTML = '<div class="empty-state">Selecione ou adicione um estudante para ver o portfólio.</div>';
+    entryList.replaceChildren(makeEmptyState('Selecione ou adicione um estudante para ver o portfólio.'));
     return;
   }
 
   learnerHeading.textContent = `${learner.nickname} · ${schoolYearLabel(learner.school_year)}`;
   setStatus('Carregando o portfólio…');
 
-  const [progressResult, entriesResult] = await Promise.all([
+  const [progressResult, entriesResult, countResult] = await Promise.all([
     supabase
       .from('activity_progress')
       .select('activity_key, completed, confidence, updated_at')
@@ -81,26 +95,35 @@ async function loadLearnerData() {
       .eq('learner_id', learner.id)
       .order('updated_at', { ascending: false })
       .limit(12),
+    supabase
+      .from('portfolio_entries')
+      .select('id', { count: 'exact', head: true })
+      .eq('learner_id', learner.id),
   ]);
 
   if (progressResult.error) throw progressResult.error;
   if (entriesResult.error) throw entriesResult.error;
+  if (countResult.error) throw countResult.error;
 
   const completed = progressResult.data.filter((item) => item.completed).length;
   const needsPractice = progressResult.data.filter((item) => item.confidence === 'needs_practice').length;
   progressCount.textContent = String(completed);
-  portfolioCount.textContent = String(entriesResult.data.length);
+  portfolioCount.textContent = String(countResult.count || 0);
   reviewCount.textContent = String(needsPractice);
 
-  entryList.innerHTML = '';
+  entryList.replaceChildren();
   if (!entriesResult.data.length) {
-    entryList.innerHTML = '<div class="empty-state">Ainda não há trabalhos salvos na nuvem. Na próxima etapa, as respostas das lições serão conectadas a este portfólio.</div>';
+    entryList.append(makeEmptyState('Ainda não há trabalhos salvos na nuvem. Na próxima etapa, as respostas das lições serão conectadas a este portfólio.'));
   } else {
     entriesResult.data.forEach((entry) => {
       const article = document.createElement('article');
+      const heading = document.createElement('h3');
+      const metadata = document.createElement('p');
+
       article.className = 'entry-item';
-      const title = entry.title || entryTypeLabel(entry.entry_type);
-      article.innerHTML = `<h3>${title}</h3><p>${entry.activity_key} · ${entryTypeLabel(entry.entry_type)} · atualizado em ${formatDate(entry.updated_at)}</p>`;
+      heading.textContent = entry.title || entryTypeLabel(entry.entry_type);
+      metadata.textContent = `${entry.activity_key} · ${entryTypeLabel(entry.entry_type)} · atualizado em ${formatDate(entry.updated_at)}`;
+      article.append(heading, metadata);
       entryList.append(article);
     });
   }
