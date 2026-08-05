@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Crie ou acesse uma conta de responsável para salvar o portfólio de inglês do estudante." />
+    <title>Entrar ou criar conta | Waldorf English Pathway</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <link rel="stylesheet" href="assets/auth.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html"><span class="brand-mark">W</span> Waldorf English <em>Pathway</em></a>
+      <nav aria-label="Navegação principal"><a href="grade-7.html">Práticas do 7º ano</a><a href="privacy.html">Privacidade</a></nav>
+      <a class="text-link" href="index.html">Voltar ao início</a>
+    </header>
+
+    <main class="auth-page">
+      <section class="auth-intro">
+        <p class="eyebrow">Portfólio opcional na nuvem</p>
+        <h1>Guarde o trabalho do estudante com <em>segurança.</em></h1>
+        <p class="lead">O responsável cria a conta. O estudante usa apenas um nome ou apelido e o ano escolar. As práticas continuam gratuitas, mesmo sem conta.</p>
+        <div class="privacy-points">
+          <div class="privacy-point"><span>1</span><p><b>Conta do responsável.</b><br />A confirmação e a recuperação de senha usam o e-mail do adulto responsável.</p></div>
+          <div class="privacy-point"><span>2</span><p><b>Dados mínimos.</b><br />Não pedimos nome completo, data de nascimento, escola, endereço ou telefone do estudante.</p></div>
+          <div class="privacy-point"><span>3</span><p><b>Portfólio privado.</b><br />Cada responsável acessa somente os estudantes vinculados à própria conta. O administrador pode revisar atividades quando necessário.</p></div>
+        </div>
+      </section>
+
+      <section class="auth-card" aria-labelledby="auth-title">
+        <p id="auth-status" class="form-status" aria-live="polite"></p>
+
+        <div id="auth-forms">
+          <div class="auth-tabs" role="tablist" aria-label="Escolha entrar ou criar conta">
+            <button class="auth-tab active" type="button" role="tab" aria-selected="true" data-auth-view="login">Entrar</button>
+            <button class="auth-tab" type="button" role="tab" aria-selected="false" data-auth-view="signup">Criar conta</button>
+          </div>
+
+          <section class="auth-panel" data-auth-panel="login">
+            <h2 id="auth-title">Acesse o portfólio</h2>
+            <p>Use o e-mail e a senha cadastrados pelo responsável.</p>
+            <form id="login-form" class="form-grid" novalidate>
+              <label class="field">E-mail do responsável<input name="email" type="email" autocomplete="email" required /></label>
+              <label class="field">Senha<input name="password" type="password" autocomplete="current-password" required /></label>
+              <div class="auth-actions"><button class="button" type="submit">Entrar</button><button class="link-button" type="button" data-show-recovery>Esqueci minha senha</button></div>
+              <p class="form-status" aria-live="polite"></p>
+            </form>
+          </section>
+
+          <section class="auth-panel" data-auth-panel="signup" hidden>
+            <h2>Crie a conta do responsável</h2>
+            <p>Depois do cadastro, enviaremos um link para confirmar o e-mail.</p>
+            <form id="signup-form" class="form-grid" novalidate>
+              <label class="field">E-mail do responsável<input name="email" type="email" autocomplete="email" required /></label>
+              <label class="field">Nome ou apelido do estudante<input name="learner_nickname" type="text" maxlength="80" autocomplete="off" required /><span class="field-help">Use somente o nome necessário para identificar o portfólio.</span></label>
+              <label class="field">Ano escolar atual<select name="school_year" required><option value="6">6º ano</option><option value="7" selected>7º ano</option><option value="8">8º ano</option><option value="9">9º ano</option><option value="ensino_medio">Ensino Médio</option><option value="outro">Outro</option></select></label>
+              <label class="field">Crie uma senha<input name="password" type="password" minlength="8" autocomplete="new-password" required /><span class="field-help">Use pelo menos 8 caracteres.</span></label>
+              <label class="field">Confirme a senha<input name="password_confirmation" type="password" minlength="8" autocomplete="new-password" required /></label>
+              <label class="consent-box"><input name="guardian_consent" type="checkbox" value="yes" required /><span>Confirmo que sou o responsável legal pelo estudante e autorizo o armazenamento das atividades e do progresso para fins educacionais, conforme o <a class="text-link" href="privacy.html" target="_blank" rel="noopener">Aviso de Privacidade</a>.</span></label>
+              <button class="button" type="submit">Criar conta e enviar confirmação</button>
+              <p class="form-status" aria-live="polite"></p>
+            </form>
+          </section>
+
+          <section class="auth-panel" data-auth-panel="recovery" hidden>
+            <h2>Redefinir a senha</h2>
+            <p>Enviaremos um link de redefinição para o e-mail do responsável.</p>
+            <form id="recovery-form" class="form-grid" novalidate>
+              <label class="field">E-mail do responsável<input name="email" type="email" autocomplete="email" required /></label>
+              <div class="auth-actions"><button class="button" type="submit">Enviar link</button><button class="link-button" type="button" data-auth-view="login">Voltar para entrar</button></div>
+              <p class="form-status" aria-live="polite"></p>
+            </form>
+          </section>
+        </div>
+
+        <section id="signed-in-panel" class="signed-in-panel" hidden>
+          <h2>Você já está conectado</h2>
+          <p class="signed-in-email" data-account-email></p>
+          <div class="auth-actions"><button id="go-to-portfolio" class="button" type="button">Abrir o portfólio</button><button id="sign-out-auth" class="link-button" type="button">Sair desta conta</button></div>
+        </section>
+
+        <p class="auth-footer-note">Dúvidas sobre conta ou privacidade: <a class="text-link" href="mailto:waldorfep@gmail.com">waldorfep@gmail.com</a></p>
+      </section>
+    </main>
+
+    <footer><a class="brand" href="index.html"><span class="brand-mark">W</span> Waldorf English <em>Pathway</em></a><p><a class="text-link" href="privacy.html">Aviso de Privacidade</a></p></footer>
+    <script type="module" src="assets/auth.js"></script>
+  </body>
+</html>
