@@ -39,7 +39,8 @@ document.querySelectorAll('.vocab-cards button').forEach((word) => {
   word.addEventListener('click', () => {
     const help = document.querySelector('#vocab-help');
     if (!help) return;
-    help.innerHTML = `<b>${word.textContent}</b> = ${word.dataset.pt}. <span>Example: ${word.dataset.example}</span>`;
+    const phrase = word.querySelector('span')?.textContent || word.textContent;
+    help.innerHTML = `<b>${phrase}</b> = ${word.dataset.pt}. <span>Example: ${word.dataset.example}</span>`;
   });
 });
 
