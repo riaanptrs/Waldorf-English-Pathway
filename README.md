@@ -33,7 +33,7 @@ The same model will be reused for every future grade. Support levels change the 
 
 ## Grade 7 pilot
 
-The 30-lesson pilot moves from concrete observation to formal literary writing:
+The 40-practice pilot moves from concrete observation to formal literary and factual writing:
 
 1. Observation & descriptive writing
 2. Sentence combining & paragraph flow
@@ -41,8 +41,9 @@ The 30-lesson pilot moves from concrete observation to formal literary writing:
 4. Poetry, imagery & figurative language
 5. Storytelling & narrative structure
 6. Literature response & progressive essays
+7. Evidence, discovery & clear writing through Grade 7 Renaissance, science, astronomy, and geometry themes
 
-The final portfolio brings together descriptive, poetic, narrative, and analytical work.
+The final portfolio brings together descriptive, poetic, narrative, analytical, and factual work. The Grade 7 source curriculum is the main organising context; BNCC-compatible skills such as summaries, biographies, chronology, source awareness, and connected writing are woven in only where they strengthen the English learning.
 
 ## Repository structure
 

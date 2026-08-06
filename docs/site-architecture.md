@@ -63,6 +63,7 @@ Lesson sections:
 | 3 | Poetry & Word Pictures | small illustrated poetry collection |
 | 4 | Stories with Shape | structured nine-sentence story |
 | 5 | Read, Think & Respond | evidence-based literary response |
+| 6 | Evidence, Discovery & Clear Writing | factual, historical, and science-context writing |
 
 Unit 1 is the first build target. Grade 7 content remains modular: each unit can be released as it is completed without changing the structure for future grades.
 

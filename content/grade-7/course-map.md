@@ -3,7 +3,7 @@ grade: 7
 course_title: "Grade 7: Wish, Wonder & Word Pictures"
 learner_age: "12–13"
 language_level: "A2–B1, with B1+ stretch tasks"
-lesson_count: 30
+lesson_count: 40
 status: "complete"
 ---
 
@@ -91,6 +91,29 @@ Each lesson offers Guided, Core, and Stretch paths. The subject stays shared; on
 | 5.6 | From Answer to Paragraph | Claim, evidence, explanation |
 | 5.7 | From Paragraph to Essay | Three-paragraph response; optional five-paragraph structure |
 | 5.8 | Final Portfolio Reflection | Select work, reflect on growth, set the next goal |
+
+## Unit 6 — Evidence, Discovery & Clear Writing
+
+**Outcome:** Clear, responsible factual writing connected to Grade 7 Waldorf Renaissance, science, astronomy, and geometry work. The Waldorf curriculum is the organising context; BNCC-linked skills (critical reading, summaries, biographies, source awareness, chronology, and clear connected writing) strengthen the learner's practical English.
+
+| Lesson | Title | Focus |
+|---|---|---|
+| 6.1 | Seeing Carefully | Separate observation, inference, and imagination through a Leonardo-style machine sketch and familiar objects. |
+| 6.2 | Fact, Interpretation, or Exaggeration? | Test claims about astronomy, inventions, and exploration; use cautious, evidence-based English. |
+| 6.3 | From Notes to a Clear Summary | Turn a timeline and key notes into a coherent factual paragraph. |
+| 6.4 | How a Discovery Changed Ideas | Explain a historical/scientific change with a Before → Change → Impact structure. |
+| 6.5 | Experiment in Words | Describe a safe observation of a simple machine, light, air, or motion with method, observation, and cautious conclusion. |
+| 6.6 | A Person in Their Time | Write a balanced profile of a Renaissance figure, connecting person, context, actions, and legacy. |
+| 6.7 | Wish, Wonder, Surprise: Facts and Voice | Make reflective responses that distinguish a personal response from a supported factual claim. |
+| 6.8 | Mini Research Project | Plan, paraphrase, draft, check, and revise a short illustrated report using two suitable sources. |
+
+### Unit 6 support model
+
+- **Guided / emerging B1:** bilingual glossary, short source, sentence frames, 80–120 words.
+- **Core / secure B1:** shared topic, connected paragraphs, 120–180 words.
+- **Stretch / B1+–B2:** compare claims or sources, use qualification and limitations, 180–250 words.
+
+The routes are optional support, not labels for the learner. Every learner works with the same intellectually meaningful subject.
 
 ## Assessment and progress
 
