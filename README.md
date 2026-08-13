@@ -6,6 +6,8 @@ A self-paced, Waldorf-inspired English programme for Brazilian learners.
 
 **Grade 7** is the pilot course. It adapts Waldorf language arts for English as a foreign language (EFL), for learners around ages 12–13.
 
+**Grade 6** now has a first draft block, **Fair Trade, Numbers & Clear Words**, which uses Waldorf Grade 6 business math, percentages, budgeting, simple interest, and geometry as practical English-learning contexts for Brazilian learners around ages 11–12.
+
 The course is designed for independent study, with bilingual support, practical writing guidance, and progress tracking. The site will use GitHub Pages for the public learning experience and Supabase's free tier for learner accounts and saved progress.
 
 ## Course model
@@ -74,7 +76,8 @@ See [the site and curriculum architecture](docs/site-architecture.md) for the ex
 5. Grade 7 Unit 2: Wishes & Choices
 6. Account and progress tracking with Supabase
 7. Remaining Grade 7 units
-8. Additional grades, one complete course at a time
+8. Grade 6 first math-English block
+9. Additional grades, one complete course at a time
 
 ## Content principles
 
