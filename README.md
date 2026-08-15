@@ -4,7 +4,7 @@ A self-paced, Waldorf-inspired English programme for Brazilian learners.
 
 ## Current focus
 
-**Grade 7** is the pilot course. It adapts Waldorf language arts for English as a foreign language (EFL), for learners around ages 12–13.
+**Grade 7** is the pilot course. It adapts Waldorf language arts for English as a foreign language (EFL), for learners around ages 12–13. A **Lower Grades** overview now maps Grades 1–6 so future lessons can grow from oral foundations into written practice.
 
 The course is designed for independent study, with bilingual support, practical writing guidance, and progress tracking. The site will use GitHub Pages for the public learning experience and Supabase's free tier for learner accounts and saved progress.
 
@@ -74,7 +74,8 @@ See [the site and curriculum architecture](docs/site-architecture.md) for the ex
 5. Grade 7 Unit 2: Wishes & Choices
 6. Account and progress tracking with Supabase
 7. Remaining Grade 7 units
-8. Additional grades, one complete course at a time
+8. Lower Grades practice, beginning with a Grade 4 literacy bridge
+9. Additional grades, one complete course at a time
 
 ## Content principles
 

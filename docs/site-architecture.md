@@ -10,15 +10,15 @@ Waldorf English Pathway is a grade-targeted English-as-a-foreign-language learni
 Home
 ├── How it works
 ├── Courses
+│   ├── Lower Grades — overview
 │   ├── Grade 7 — active
-│   ├── Grade 6 — future
 │   └── Grade 8+ — future
 ├── Writing Studio
 ├── My progress
 └── About
 ```
 
-Future grades may be shown in planning documentation, but public navigation should show only courses that have usable lessons.
+Future grades may be shown in planning documentation. Public navigation should distinguish complete practice courses from overview or planning pages.
 
 ## Reusable content schema
 
@@ -66,6 +66,16 @@ Lesson sections:
 | 6 | Evidence, Discovery & Clear Writing | factual, historical, and science-context writing |
 
 Unit 1 is the first build target. Grade 7 content remains modular: each unit can be released as it is completed without changing the structure for future grades.
+
+## Lower grades overview
+
+The lower-grades page maps Grades 1–6 before full interactive lessons are built:
+
+| Grade band | Emphasis | Site direction |
+|---|---|---|
+| 1–3 | Oral language, imitation, songs, verses, stories, gesture, games | Teacher-led or parent-supported prompts, audio, picture cards, and printable material |
+| 4 | Literacy bridge from known oral material to reading and copywork | First independent lower-grade web practice |
+| 5–6 | Connected sentences, grammar in context, retellings, letters, summaries, and reports | Self-paced units using the Grade 7 lesson pattern with lighter language load |
 
 ## Shared platform components
 
