@@ -4,7 +4,7 @@ A self-paced, Waldorf-inspired English programme for Brazilian learners.
 
 ## Current focus
 
-**Grade 7** is the pilot course. It adapts Waldorf language arts for English as a foreign language (EFL), for learners around ages 12–13. A **Lower Grades** overview now maps Grades 1–6 so future lessons can grow from oral foundations into written practice.
+**Grade 7** is the pilot course. It adapts Waldorf language arts for English as a foreign language (EFL), for learners around ages 12-13. **Lower Grades** now include an overview for Grades 1-6 plus actual lesson outlines for Grades 1-5, growing from oral foundations into written practice. A **Grade 8** course map is planned around Jamie York's Grade 8 mathematics themes, using number systems, growth, proportions, mensuration, stereometry, and loci as contexts for English explanation and writing.
 
 The course is designed for independent study, with bilingual support, practical writing guidance, and progress tracking. The site will use GitHub Pages for the public learning experience and Supabase's free tier for learner accounts and saved progress.
 
@@ -45,6 +45,21 @@ The 40-practice pilot moves from concrete observation to formal literary and fac
 
 The final portfolio brings together descriptive, poetic, narrative, analytical, and factual work. The Grade 7 source curriculum is the main organising context; BNCC-compatible skills such as summaries, biographies, chronology, source awareness, and connected writing are woven in only where they strengthen the English learning.
 
+## Grade 8 plan
+
+The planned Grade 8 pathway keeps the same reinforcement pattern while moving into clearer reasoning and technical explanation:
+
+1. Number systems, algorithms, binary, hexadecimal, and codes
+2. Percents, growth, graphs, and responsible claims
+3. Ratios, rates, proportions, and problem-solving reports
+4. Measurement, unit conversions, dimensional analysis, and density
+5. Algebraic structure and worked-example explanations
+6. Mensuration: area, volume, surface area, and Pythagorean calculations
+7. Stereometry, Platonic and Archimedean solids, orthogonal views, loci, and conic sections
+8. Research, algorithm writing, presentation, and final portfolio reflection
+
+The Grade 8 map is based on Jamie York Press curriculum overviews for Grade 8 mathematics, but all learner-facing English materials should be original.
+
 ## Repository structure
 
 ```
@@ -54,10 +69,12 @@ The final portfolio brings together descriptive, poetic, narrative, analytical, 
 │   ├── grade-7/            # first active curriculum
 │   │   ├── course-map.md
 │   │   └── units/
-│   ├── grade-6/            # added only when its course is ready
-│   └── grade-8/
+│   ├── lower-grades/       # overview for Grades 1-6
+│   └── grade-8/            # planned Jamie York-aligned Grade 8 course map
 ├── index.html              # public website home page
+├── lower-lessons.html      # actual Grade 1-5 lower-grade lesson outlines
 ├── grade-7.html            # active Grade 7 course page
+├── grade-8.html            # planned Grade 8 course page
 ├── lesson-look-closely.html # first interactive Grade 7 lesson
 ├── assets/                 # shared CSS and browser-based lesson interactions
 └── README.md
@@ -74,8 +91,9 @@ See [the site and curriculum architecture](docs/site-architecture.md) for the ex
 5. Grade 7 Unit 2: Wishes & Choices
 6. Account and progress tracking with Supabase
 7. Remaining Grade 7 units
-8. Lower Grades practice, beginning with a Grade 4 literacy bridge
-9. Additional grades, one complete course at a time
+8. Grade 8 course map
+9. Lower Grades practice, beginning with Grade 1-5 lesson outlines and a Grade 4 literacy bridge
+10. Additional grades, one complete course at a time
 
 ## Content principles
 
