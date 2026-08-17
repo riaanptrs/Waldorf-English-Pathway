@@ -12,13 +12,13 @@ Home
 ├── Courses
 │   ├── Lower Grades — overview
 │   ├── Grade 7 — active
-│   └── Grade 8+ — future
+│   └── Grade 8 — planned
 ├── Writing Studio
 ├── My progress
 └── About
 ```
 
-Future grades may be shown in planning documentation. Public navigation should distinguish complete practice courses from overview or planning pages.
+Future grades may be shown in planning documentation and course-plan pages. Public navigation should distinguish complete practice courses from overview or planning pages.
 
 ## Reusable content schema
 
@@ -66,6 +66,24 @@ Lesson sections:
 | 6 | Evidence, Discovery & Clear Writing | factual, historical, and science-context writing |
 
 Unit 1 is the first build target. Grade 7 content remains modular: each unit can be released as it is completed without changing the structure for future grades.
+
+## Grade 8 planned outline
+
+Grade 8 follows the same lesson pattern as Grade 7, but uses Jamie York's Grade 8 mathematics themes as the main content context for English practice:
+
+| Unit | Working title | Main outcome |
+|---|---|---|
+| 0 | Start Here | learner profile and first short explanation |
+| 1 | Numbers in Different Worlds | illustrated explanation of a number system or algorithm |
+| 2 | Growth, Percent & Real-World Change | factual paragraph explaining increase, decrease, or growth |
+| 3 | Ratios, Rates & Proportions | problem-solving report that shows reasoning |
+| 4 | Measurement, Units & Dimensional Analysis | practical conversion guide or mini-report |
+| 5 | Algebra as Clear Structure | worked examples with explanations |
+| 6 | Mensuration: Area, Volume & Surface | visual math explanation connecting formula, diagram, and reasoning |
+| 7 | Stereometry & Loci | descriptive and analytical portfolio piece about a solid or curve |
+| 8 | Clear Reasoning, Research & Portfolio | final mathematical explanation, comparison, report, and reflection |
+
+The detailed map lives at `content/grade-8/course-map.md`. Public navigation should continue to present Grade 8 as planned until at least the introduction and first unit are usable.
 
 ## Lower grades overview
 
