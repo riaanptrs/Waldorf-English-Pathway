@@ -11,7 +11,8 @@ Home
 ├── How it works
 ├── Courses
 │   ├── Lower Grades — overview
-│   ├── Lower Grade Lessons — Grades 1-5
+│   ├── Lower Grade Lessons — Grades 1-6
+│   ├── Grade 6 — bridge
 │   ├── Grade 7 — active
 │   └── Grade 8 — planned
 ├── Writing Studio
@@ -88,7 +89,7 @@ The detailed map lives at `content/grade-8/course-map.md`. Public navigation sho
 
 ## Lower grades overview
 
-The lower-grades page maps Grades 1-6. The lower-grade lessons page gives actual Grades 1-5 lesson outlines:
+The lower-grades page maps Grades 1-6. The lower-grade lessons page gives actual Grades 1-6 lesson outlines:
 
 | Grade band | Emphasis | Site direction |
 |---|---|---|
@@ -105,6 +106,7 @@ Current lower-grade lesson release:
 | 3 | House, farming, directions, professions | 4 teacher-led lesson outlines |
 | 4 | Nature reading, animal description, geography, grammar | 4 bridge lesson outlines |
 | 5 | Myth retelling, postcard, comparison, biography | 4 independent writing lesson outlines |
+| 6 | Paragraphs, biography, science observation, reports | 4 independent bridge lesson outlines plus a course page |
 
 ## Shared platform components
 
